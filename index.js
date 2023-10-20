@@ -10,6 +10,7 @@ app.use(
     cors({
         origin: [
             "http://localhost:3000",
+           "https://prema-consultancy.vercel.app"
           ],
           credentials: true,
     })

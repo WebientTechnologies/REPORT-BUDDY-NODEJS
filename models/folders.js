@@ -1,0 +1,56 @@
+const mongoose = require("mongoose");
+
+const folders = new mongoose.Schema(
+    {
+        projectId:{
+            type:String,
+            required:false,
+            maxLength:255,
+        },
+        name:{   
+            type:String,
+            required:false,
+            maxLength:255,
+       },
+        parentId:{
+            type:mongoose.Types.ObjectId,
+            required:false,
+            ref:'Folder'
+        },
+        deletable:{
+            type:Boolean,
+            required:false,
+            default:true
+        },
+        allowcamera:{
+            type:Boolean,
+            required:false,
+            default:true
+        },
+        allowgallery:{
+            type:Boolean,
+            required:false,
+            default:true
+        },
+        allowaddfolder:{
+            type:Boolean,
+            required:false,
+            default:true
+        },
+        allowdeletefolder:{
+            type:Boolean,
+            required:false,
+            default:true
+        },
+        allowrenamefolder:{
+            type:Boolean,
+            required:false,
+            default:true
+        },
+        filecount:{
+            type:Number,
+            required:false,
+        },
+    }
+);
+module.exports = mongoose.model("Folder", folders);
