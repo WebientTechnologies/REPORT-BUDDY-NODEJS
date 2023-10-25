@@ -22,8 +22,7 @@ router.post("/forget-password",  userController.forgotPassword);
 router.post("/change-password", auth, userController.updatePassword);
 
 //project route//
-router.post("/add-project", auth, projectController.createProject)
-
+router.get("/get-project", projectController.fetchProjectDetails);
 
 // form felids
 router.post("/project-details",auth, FormFelidsMulter,FormPost);

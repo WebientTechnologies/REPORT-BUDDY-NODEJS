@@ -2,15 +2,16 @@ const FieldForm = require("../models/fieldForm");
 
 exports.FormPost = async (req, res) => {
   try {
-    const s3FileUrls = req.s3FileUrls;
+    const s3FileUrls = req.files;
+    console.log({aerialImages:s3FileUrls['aerialImages[]']})
     let data = req.body;
     if (data?.interviewee) {
       data.interviewee = JSON.parse(data.interviewee);
       data.interviewee = data?.interviewee.map((interviewee, index) => ({
         ...interviewee,
-        businessCardBack: s3FileUrls.businessCardBack[index],
-        businessCardFront: s3FileUrls.businessCardFront[index],
-        document: s3FileUrls.document[index],
+        businessCardBack: s3FileUrls['businessCardBack[]'][index]?.filename,
+        businessCardFront: s3FileUrls['businessCardFront[]'][index]?.filename,
+        document: s3FileUrls['document[]'][index]?.filename,
       }));
     }
     if (data?.propertyStructure) data.propertyStructure = JSON.parse(data.propertyStructure);
@@ -23,10 +24,10 @@ exports.FormPost = async (req, res) => {
 
     if (data?.floodData) data.floodData = JSON.parse(data.floodData);
 
-    data.aerialImages = s3FileUrls.aerialImages;
-    data.historicalImages = s3FileUrls.historicalImages;
+    data.aerialImages = s3FileUrls['aerialImages[]'].map(image => image.filename);
+    data.historicalImages = s3FileUrls['historicalImages[]'].map(image => image.filename);
 
-    console.log({ data, s3FileUrls });
+    // console.log({ data, s3FileUrls });
 
     data.userId = req.user._id;
     const form = new FieldForm(data);
@@ -35,6 +36,7 @@ exports.FormPost = async (req, res) => {
     return res
       .status(201)
       .json({ message: "form created successfully", savedForm });
+
   } catch (error) {
     console.error("Error during customer signup:", error);
     return res.status(500).json({ message: "Something went wrong" });

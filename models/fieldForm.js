@@ -107,57 +107,16 @@ const fieldforms = new mongoose.Schema(
                 required:false,
                 maxLength:255,
             },
-            businessCardFront:{
-                Bucket:{
-                    type:String,
-                    required:[true, 'BusinessCardFront Image is required'],
-
-                },
-                Key:{
-                    type:String,
-                    required:[true, 'BusinessCardFront is required'],
-
-                },
-                Url:{
-                    type:String,
-                    required:[true, 'BusinessCardFront is required'],
-
-                }
-            },
-            businessCardBack:{
-                Bucket:{
-                    type:String,
-                    required:[true, 'Business Card Back Image is required'],
-
-                },
-                Key:{
-                    type:String,
-                    required:[true, 'Business Card Back Image is required'],
-                    maxLength:255,
-                },
-                Url:{
-                    type:String,
-                    required:[true, 'Business Card Back Image is required'],
-                    maxLength:255,
-                }
-            },
+            businessCardFront:{type:String,
+                    required:[true, 'document Image is required'],
+},
+            businessCardBack:{type:String,
+                    required:[true, 'document Image is required'],
+},
             document:{
-                Bucket:{
-                    type:String,
-                    required:[true, 'document is required'],
-
-                },
-                Key:{
-                    type:String,
-                    required:[true, 'document is required'],
-
-                },
-                Url:{
-                    type:String,
-                    required:[true, 'document is required'],
-
-                }
-            },
+                type:String,
+                    required:[true, 'document Image is required'],
+},
         }],
         propertyPurchesTime:{
             type:String,
@@ -323,20 +282,9 @@ const fieldforms = new mongoose.Schema(
 
         },
         
-        aerialImages:[{
-            Bucket:{
-                type:String,
-                required:[true, 'Aerial Image is required'],
-            },
-            Key:{
-                type:String,
-                required:[true, 'Aerial Image is required'],
-            },
-            Url:{
-                type:String,
-                required:[true, 'Aerial Image is required'],
-            }
-        }],
+        aerialImages:[{type:String,
+                required:[true, 'document Image is required'],
+}],
         realtorImageNotes:{
             type:String,
             required:false,
@@ -357,22 +305,9 @@ const fieldforms = new mongoose.Schema(
         },
         
         historicalImages:[{
-            Bucket:{
-                type:String,
-                required:[true, 'Historical Image is required'],
-
-            },
-            Key:{
-                type:String,
-                required:[true, 'Historical Image is required'],
-
-            },
-            Url:{
-                type:String,
-                required:[true, 'Historical Image is required'],
-
-            }
-        }],
+            type:String,
+                required:[true, 'document Image is required'],
+}],
         soilData:{
             type:String,
             required:false,

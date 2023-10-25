@@ -2,10 +2,16 @@ const mongoose = require("mongoose");
 
 const projects = new mongoose.Schema(
     {
-        name:{   
+        token:{   
             type:String,
             required:false,
-            maxLength:255,
+            maxLength:800,
+       },
+
+       expireTime:{
+            type:String,
+            required:false,
+            maxLength:800,
        },
        createdAt:{
             type:Date,

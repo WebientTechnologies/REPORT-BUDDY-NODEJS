@@ -15,7 +15,7 @@ exports.auth = async(req, res , next) => {
   }
 
   if (!token) {
-    return next(new ErrorHandler("Not logged in", 401));
+    return res.status(401).json({message:"Not logged in"});
   }
 
 
