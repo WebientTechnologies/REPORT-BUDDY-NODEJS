@@ -27,7 +27,7 @@ app.use(cookieParser());
 
 
 //mount the todo API routes
-app.use("/api/v1", router);
+app.use("/backend/api/v1", router);
 
 module.exports.handler = sls(app);
 
