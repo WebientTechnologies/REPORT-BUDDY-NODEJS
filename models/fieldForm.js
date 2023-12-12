@@ -162,11 +162,11 @@ const fieldforms = new mongoose.Schema(
                 maxLength:255,
             },
             exterior:{
-                exteriorDamageInfo:[{
+                exteriorDamageInfo:{
                     type:String,
                     required:false,
                     maxLength:255,
-                }],
+                },
                 notes:{
                     type:String,
                     required:false,
@@ -174,11 +174,11 @@ const fieldforms = new mongoose.Schema(
                 },
             },
             roof:{
-                roofDamageInfo:[{
+                roofDamageInfo:{
                     type:String,
                     required:false,
                     maxLength:255,
-                }],
+                },
                 notes:{
                     type:String,
                     required:false,
@@ -231,12 +231,12 @@ const fieldforms = new mongoose.Schema(
                 required:false,
                 maxLength:5000,
             },
-            estimateAndPhotoSheet:{ 
+            documentReviewNotes:{ 
                 type:String,
                 required:false,
                 maxLength:5000,
             },
-            itemsList:{ 
+            noteworthyItems:{ 
                 type:String,
                 required:false,
                 maxLength:5000,
